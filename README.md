@@ -1,3 +1,10 @@
+Tentu, ini adalah kode `README.md` yang sudah diperbarui dengan tambahan bagian "Detail Implementasi" yang menjelaskan penggunaan FSM dan menyertakan gambar.
+
+-----
+
+### Kode `README.md` Lengkap
+
+````markdown
 # Chatbot Flow API
 
 Ini adalah REST API sederhana yang dibuat menggunakan TypeScript dan Express.js untuk mendukung chatbot berbasis alur pemesanan menu restoran.
@@ -64,19 +71,23 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
 ## 📁 Struktur Folder
 
 Proyek ini menggunakan struktur folder yang logis untuk memisahkan setiap bagian dari aplikasi sesuai dengan tanggung jawabnya.
+
+````
+
 /
-├── prisma/             # Skema dan migrasi Prisma
+├── prisma/             \# Skema dan migrasi Prisma
 ├── src/
-│   ├── controllers/    # Menangani request dan response HTTP
-│   ├── repositories/   # Logika akses data (Prisma)
-│   ├── routes/         # Definisi endpoint API
-│   ├── services/       # Logika bisnis inti
-│   ├── types/          # Definisi interface TypeScript
-│   └── utils/          # Fungsi bantuan dan konfigurasi
-├── .env                # Variabel lingkungan
-├── docker-compose.yml  # Konfigurasi Docker
+│   ├── controllers/    \# Menangani request dan response HTTP
+│   ├── repositories/   \# Logika akses data (Prisma)
+│   ├── routes/         \# Definisi endpoint API
+│   ├── services/       \# Logika bisnis inti
+│   ├── types/          \# Definisi interface TypeScript
+│   └── utils/          \# Fungsi bantuan dan konfigurasi
+├── .env                \# Variabel lingkungan
+├── docker-compose.yml  \# Konfigurasi Docker
 └── package.json
 
+```
 
 ---
 ## ⚙️ Detail Implementasi
@@ -112,3 +123,4 @@ Di halaman tersebut, Anda bisa melihat semua *endpoint* yang tersedia, melihat s
 2.  Klik tombol "Try it out".
 3.  Klik tombol "Execute".
 4.  Anda akan melihat respons JSON dari server di bawahnya.
+```
