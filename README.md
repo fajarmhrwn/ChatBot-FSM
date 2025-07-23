@@ -1,10 +1,3 @@
-Tentu, ini adalah kode `README.md` yang sudah diperbarui dengan tambahan bagian "Detail Implementasi" yang menjelaskan penggunaan FSM dan menyertakan gambar.
-
------
-
-### Kode `README.md` Lengkap
-
-````markdown
 # Chatbot Flow API
 
 Ini adalah REST API sederhana yang dibuat menggunakan TypeScript dan Express.js untuk mendukung chatbot berbasis alur pemesanan menu restoran.
@@ -33,7 +26,7 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
     ```
     Pastikan `DATABASE_URL` di dalam file `.env` sudah benar untuk lingkungan lokal Anda.
     ```env
-    DATABASE_URL="postgresql://admin:password@localhost:5432/db"
+    DATABASE_URL="postgresql://admin:password@localhost:5433/db?schema=public"
     ```
 
 3.  **Install Dependensi**
@@ -48,16 +41,16 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
     docker-compose up -d
     ```
 
-5.  **Sinkronkan Skema Database**
-    Terapkan skema Prisma ke database Anda. Perintah ini akan membuat tabel yang dibutuhkan.
-    ```bash
-    npx prisma db push
-    ```
-
-6.  **Generate Prisma Client**
+5.  **Generate Prisma Client**
     Pastikan Prisma Client Anda sinkron dengan skema.
     ```bash
     npx prisma generate
+    ```
+
+6.  **Sinkronkan Skema Database**
+    Terapkan skema Prisma ke database Anda. Perintah ini akan membuat tabel yang dibutuhkan.
+    ```bash
+    npx prisma db push
     ```
 
 7.  **Jalankan Aplikasi**
@@ -90,6 +83,13 @@ Proyek ini menggunakan struktur folder yang logis untuk memisahkan setiap bagian
 ```
 
 ---
+## 💾 Penyimpanan Data
+
+Aplikasi ini menggunakan **PostgreSQL** sebagai database utamanya. Database ini dijalankan di dalam kontainer Docker untuk kemudahan setup dan isolasi lingkungan.
+
+**Prisma ORM** digunakan sebagai lapisan abstraksi untuk berinteraksi dengan database, memungkinkan pengembangan yang *type-safe* dan manajemen skema yang mudah.
+
+---
 ## ⚙️ Detail Implementasi
 
 Logika inti dari chatbot ini diimplementasikan menggunakan pola desain **Finite State Machine (FSM)** atau Mesin Status Terbatas.
@@ -98,14 +98,7 @@ Setiap langkah dalam percakapan dianggap sebagai sebuah **state** (status). Inpu
 
 Pendekatan ini membuat alur percakapan menjadi terstruktur, mudah diprediksi, dan gampang untuk dimodifikasi atau diperluas di masa depan tanpa mengubah logika inti dari bot itu sendiri.
 
-![Diagram Alur FSM](./fsm.png)
-
----
-## 💾 Penyimpanan Data
-
-Aplikasi ini menggunakan **PostgreSQL** sebagai database utamanya. Database ini dijalankan di dalam kontainer Docker untuk kemudahan setup dan isolasi lingkungan.
-
-**Prisma ORM** digunakan sebagai lapisan abstraksi untuk berinteraksi dengan database, memungkinkan pengembangan yang *type-safe* dan manajemen skema yang mudah.
+![Diagram Alur FSM](./public/FSM.png)
 
 ---
 ## 🧪 Menguji API Endpoints
