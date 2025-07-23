@@ -114,4 +114,3 @@ Di halaman tersebut, Anda bisa melihat semua *endpoint* yang tersedia, melihat s
 2.  Klik tombol "Try it out".
 3.  Klik tombol "Execute".
 4.  Anda akan melihat respons JSON dari server di bawahnya.
-```
