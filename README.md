@@ -26,7 +26,7 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
     ```
     Pastikan `DATABASE_URL` di dalam file `.env` sudah benar untuk lingkungan lokal Anda.
     ```env
-    DATABASE_URL="postgresql://admin:password@localhost:5433/db?schema=public"
+    DATABASE_URL="postgresql://admin:password@localhost:5432/db"
     ```
 
 3.  **Install Dependensi**
@@ -41,16 +41,16 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
     docker-compose up -d
     ```
 
-5.  **Generate Prisma Client**
-    Pastikan Prisma Client Anda sinkron dengan skema.
-    ```bash
-    npx prisma generate
-    ```
-
-6.  **Sinkronkan Skema Database**
+5.  **Sinkronkan Skema Database**
     Terapkan skema Prisma ke database Anda. Perintah ini akan membuat tabel yang dibutuhkan.
     ```bash
     npx prisma db push
+    ```
+
+6.  **Generate Prisma Client**
+    Pastikan Prisma Client Anda sinkron dengan skema.
+    ```bash
+    npx prisma generate
     ```
 
 7.  **Jalankan Aplikasi**
@@ -64,30 +64,19 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
 ## 📁 Struktur Folder
 
 Proyek ini menggunakan struktur folder yang logis untuk memisahkan setiap bagian dari aplikasi sesuai dengan tanggung jawabnya.
-
-````
-
 /
-├── prisma/             \# Skema dan migrasi Prisma
+├── prisma/             # Skema dan migrasi Prisma
 ├── src/
-│   ├── controllers/    \# Menangani request dan response HTTP
-│   ├── repositories/   \# Logika akses data (Prisma)
-│   ├── routes/         \# Definisi endpoint API
-│   ├── services/       \# Logika bisnis inti
-│   ├── types/          \# Definisi interface TypeScript
-│   └── utils/          \# Fungsi bantuan dan konfigurasi
-├── .env                \# Variabel lingkungan
-├── docker-compose.yml  \# Konfigurasi Docker
+│   ├── controllers/    # Menangani request dan response HTTP
+│   ├── repositories/   # Logika akses data (Prisma)
+│   ├── routes/         # Definisi endpoint API
+│   ├── services/       # Logika bisnis inti
+│   ├── types/          # Definisi interface TypeScript
+│   └── utils/          # Fungsi bantuan dan konfigurasi
+├── .env                # Variabel lingkungan
+├── docker-compose.yml  # Konfigurasi Docker
 └── package.json
 
-```
-
----
-## 💾 Penyimpanan Data
-
-Aplikasi ini menggunakan **PostgreSQL** sebagai database utamanya. Database ini dijalankan di dalam kontainer Docker untuk kemudahan setup dan isolasi lingkungan.
-
-**Prisma ORM** digunakan sebagai lapisan abstraksi untuk berinteraksi dengan database, memungkinkan pengembangan yang *type-safe* dan manajemen skema yang mudah.
 
 ---
 ## ⚙️ Detail Implementasi
@@ -98,7 +87,14 @@ Setiap langkah dalam percakapan dianggap sebagai sebuah **state** (status). Inpu
 
 Pendekatan ini membuat alur percakapan menjadi terstruktur, mudah diprediksi, dan gampang untuk dimodifikasi atau diperluas di masa depan tanpa mengubah logika inti dari bot itu sendiri.
 
-![Diagram Alur FSM](./public/FSM.png)
+![Diagram Alur FSM](./fsm.png)
+
+---
+## 💾 Penyimpanan Data
+
+Aplikasi ini menggunakan **PostgreSQL** sebagai database utamanya. Database ini dijalankan di dalam kontainer Docker untuk kemudahan setup dan isolasi lingkungan.
+
+**Prisma ORM** digunakan sebagai lapisan abstraksi untuk berinteraksi dengan database, memungkinkan pengembangan yang *type-safe* dan manajemen skema yang mudah.
 
 ---
 ## 🧪 Menguji API Endpoints
@@ -116,4 +112,3 @@ Di halaman tersebut, Anda bisa melihat semua *endpoint* yang tersedia, melihat s
 2.  Klik tombol "Try it out".
 3.  Klik tombol "Execute".
 4.  Anda akan melihat respons JSON dari server di bawahnya.
-```
