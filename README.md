@@ -1,6 +1,3 @@
-Tentu, ini adalah kode `README.md` yang sudah diperbarui dengan tambahan bagian "Struktur Folder".
-
-````markdown
 # Chatbot Flow API
 
 Ini adalah REST API sederhana yang dibuat menggunakan TypeScript dan Express.js untuk mendukung chatbot berbasis alur pemesanan menu restoran.
