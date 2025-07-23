@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Message {
+  // --- Perubahan di sini ---
+  id        String   @id @default(uuid()) @db.Uuid
+  sender    String
+  text      String
+  timestamp DateTime @default(now())
+  session   Session  @relation(fields: [sessionId], references: [id])
+  sessionId String   @db.Uuid
+}
+
+model Session {
+  id            String    @id @default(uuid()) @db.Uuid
+  currentState  String
+  collectedData String[]
+  messages      Message[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
