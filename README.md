@@ -66,7 +66,6 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
 Proyek ini menggunakan struktur folder yang logis untuk memisahkan setiap bagian dari aplikasi sesuai dengan tanggung jawabnya.
 
 ````
-
 /
 ├── prisma/             \# Skema dan migrasi Prisma
 ├── src/
@@ -79,8 +78,7 @@ Proyek ini menggunakan struktur folder yang logis untuk memisahkan setiap bagian
 ├── .env                \# Variabel lingkungan
 ├── docker-compose.yml  \# Konfigurasi Docker
 └── package.json
-
-```
+````
 
 ---
 ## 💾 Penyimpanan Data
