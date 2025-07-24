@@ -56,7 +56,7 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
 7.  **Jalankan Aplikasi**
     Mulai server pengembangan.
     ```bash
-    npm run dev
+    npm run start
     ```
     Server akan berjalan di `http://localhost:3000`.
 
